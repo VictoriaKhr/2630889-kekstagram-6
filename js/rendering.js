@@ -17,8 +17,6 @@ const createPictureElement = (photo) => {
 
   pictureElement.addEventListener('click', (evt) => {
     evt.preventDefault();
-    // console.log удален согласно правилам линтера
-
     const openPhotoEvent = new CustomEvent('openphoto', {
       detail: { photoId: photo.id }
     });
