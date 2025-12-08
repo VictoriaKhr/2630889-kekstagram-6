@@ -17,7 +17,7 @@ const createPictureElement = (photo) => {
 
   pictureElement.addEventListener('click', (evt) => {
     evt.preventDefault();
-    console.log('Открыть фото:', photo.id, photo.description);
+    // console.log удален согласно правилам линтера
 
     const openPhotoEvent = new CustomEvent('openphoto', {
       detail: { photoId: photo.id }
@@ -37,14 +37,14 @@ const renderPictures = () => {
   });
 
   const existingPictures = picturesContainer.querySelectorAll('.picture');
-  existingPictures.forEach(picture => picture.remove());
+  existingPictures.forEach((picture) => picture.remove());
 
   picturesContainer.appendChild(fragment);
 };
 
 const clearPictures = () => {
   const pictures = picturesContainer.querySelectorAll('.picture');
-  pictures.forEach(picture => picture.remove());
+  pictures.forEach((picture) => picture.remove());
 };
 
 export { renderPictures, clearPictures };
