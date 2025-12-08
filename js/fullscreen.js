@@ -40,7 +40,7 @@ const clearComments = () => {
 };
 
 const renderComments = (comments) => {
-  clearComments(); // Очищаем перед добавлением новых
+  clearComments();
 
   const fragment = document.createDocumentFragment();
   comments.forEach((comment) => {
@@ -54,12 +54,9 @@ const openBigPicture = (photoId) => {
   const photo = getPhotoById(photoId);
 
   if (!photo) {
-    console.error('Фото с ID', photoId, 'не найдено');
     return;
   }
 
-  console.log('Открываем фото:', photo);
-  console.log('Комментарии:', photo.comments);
 
   bigPictureImg.src = photo.url;
   bigPictureImg.alt = photo.description;
@@ -105,7 +102,6 @@ const initFullscreen = () => {
   });
 
   document.addEventListener('openphoto', (evt) => {
-    console.log('Получено событие openphoto с ID:', evt.detail.photoId);
     openBigPicture(evt.detail.photoId);
   });
 
