@@ -18,3 +18,17 @@ export const createIdGenerator = () => {
 };
 
 export const isEscapeKey = (evt) => evt.key === 'Escape';
+
+const ALERT_SHOW_TIME = 5000;
+
+export const showAlert = (message) => {
+  const alertContainer = document.createElement('div');
+  alertContainer.classList.add('data-error');
+  alertContainer.textContent = message;
+
+  document.body.append(alertContainer);
+
+  setTimeout(() => {
+    alertContainer.remove();
+  }, ALERT_SHOW_TIME);
+};
