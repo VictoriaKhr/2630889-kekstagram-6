@@ -1,13 +1,20 @@
 
-import { photos } from './data.js';
 import { renderPictures } from './rendering.js';
-import { initFullscreen } from './fullscreen.js';
+import { initFullscreen, setPhotos } from './fullscreen.js';
 import { initForm } from './form.js';
+import { getData } from './api.js';
+import { showAlert } from './util.js';
 
-document.addEventListener('DOMContentLoaded', () => {
-  renderPictures();
-  initFullscreen();
-  initForm();
-});
+initForm();
+initFullscreen();
 
-export { photos, renderPictures };
+getData()
+  .then((pictures) => {
+    renderPictures(pictures);
+    setPhotos(pictures);
+  })
+  .catch((err) => {
+    showAlert(err.message);
+  });
+
+export { renderPictures };

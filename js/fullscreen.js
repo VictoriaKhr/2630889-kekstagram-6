@@ -1,5 +1,3 @@
-import { photos } from './data.js';
-
 const bigPicture = document.querySelector('.big-picture');
 const bigPictureImg = bigPicture.querySelector('.big-picture__img img');
 const likesCount = bigPicture.querySelector('.likes-count');
@@ -14,6 +12,11 @@ const body = document.body;
 const COMMENTS_PER_PAGE = 5;
 let currentComments = [];
 let commentsShown = 0;
+let photos = [];
+
+const setPhotos = (newPhotos) => {
+  photos = newPhotos;
+};
 
 const getPhotoById = (id) => photos.find((photo) => photo.id === id);
 
@@ -136,4 +139,4 @@ const initFullscreen = () => {
   document.addEventListener('keydown', onDocumentKeydown);
 };
 
-export { initFullscreen, openBigPicture, closeBigPicture };
+export { initFullscreen, openBigPicture, closeBigPicture, setPhotos };
